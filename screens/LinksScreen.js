@@ -1,27 +1,23 @@
-import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
-
-export default class LinksScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Links',
-  };
-
+import React, { Component } from "react";
+import { Container, Header, Content, Accordion } from "native-base";
+const dataArray = [
+  { title: "Bike", content: 35 },
+  { title: "Bus", content: "Lorem ipsum dolor sit amet" },
+  { title: "Train", content: "Lorem ipsum dolor sit amet" }
+];
+export default class AccordionHeaderContentStyleExample extends Component {
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
-      </ScrollView>
+      <Container>
+        <Header />
+        <Content padder>
+          <Accordion
+            dataArray={dataArray}
+            headerStyle={{ backgroundColor: "#b7daf8" }}
+            contentStyle={{ backgroundColor: "#ddecf8" }}
+          />
+        </Content>
+      </Container>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
