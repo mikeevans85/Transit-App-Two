@@ -4,7 +4,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import TrainScreen from '../screens/TrainScreen';
+import BusScreen from '../screens/BusScreen';
+import BikeScreen from '../screens/BikeScreen';
+
 import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
@@ -25,16 +28,44 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const TrainStack = createStackNavigator({
+  Train: TrainScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Find Nearby',
+TrainStack.navigationOptions = {
+  tabBarLabel: 'Train',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-navigate' : 'md-navigate'}
+      name={Platform.OS === 'ios' ? 'ios-train' : 'md-train'}
+    />
+  ),
+};
+
+const BusStack = createStackNavigator({
+  Bus: BusScreen,
+});
+
+BusStack.navigationOptions = {
+  tabBarLabel: 'Bus',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-bus' : 'md-bus'}
+    />
+  ),
+};
+
+const BikeStack = createStackNavigator({
+  Bike: BikeScreen,
+});
+
+BikeStack.navigationOptions = {
+  tabBarLabel: 'Bike',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-bicycle' : 'md-bicycle'}
     />
   ),
 };
@@ -55,6 +86,8 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  TrainStack,
+  BusStack,
+  BikeStack,
   SettingsStack,
 });

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Header, Content, Accordion } from "native-base";
 const dataArray = [
-  { title: "Bike", content: 35 },
+  { title: "Bike", content: [{ red: 10, blue: 20 }] },
   { title: "Bus", content: "Lorem ipsum dolor sit amet" },
   { title: "Train", content: "Lorem ipsum dolor sit amet" }
 ];
