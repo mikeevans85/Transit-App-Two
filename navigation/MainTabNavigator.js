@@ -8,7 +8,7 @@ import TrainScreen from '../screens/TrainScreen';
 import BusScreen from '../screens/BusScreen';
 import BikeScreen from '../screens/BikeScreen';
 
-import SettingsScreen from '../screens/SettingsScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -70,11 +70,11 @@ BikeStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const FavoritesStack = createStackNavigator({
+  Favorites: FavoritesScreen,
 });
 
-SettingsStack.navigationOptions = {
+FavoritesStack.navigationOptions = {
   tabBarLabel: 'Favorites',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -89,5 +89,5 @@ export default createBottomTabNavigator({
   TrainStack,
   BusStack,
   BikeStack,
-  SettingsStack,
+  FavoritesStack,
 });
