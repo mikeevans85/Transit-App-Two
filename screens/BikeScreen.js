@@ -1,15 +1,51 @@
 import React, { Component } from "react";
-import { Container, Text, Header, Content, Accordion } from "native-base";
-// const dataArray = [
-//   { title: "Bike", content: [{ red: 10, blue: 20 }] },
-//   { title: "Bus", content: "Lorem ipsum dolor sit amet" },
-//   { title: "Train", content: "Lorem ipsum dolor sit amet" }
-// ];
-export default class FixedLabelExample extends Component {
+import { Container, Header, Content, Card, CardItem, Text, Body } from "native-base";
+export default class CardItemBordered extends Component {
   render() {
     return (
       <Container>
-        <Text>This is the bike screen!</Text>
+        <Header />
+        <Content padder>
+          <Card>
+            <CardItem header bordered>
+              <Text>Morgan St & 18th St</Text>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+                <Text>Total Docks: 15 </Text>
+              </Body>
+            </CardItem>
+            <CardItem footer bordered>
+              <Text>GeekyAnts</Text>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem header bordered>
+              <Text>Dodge Ave & Mulford St</Text>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+                <Text>Total Docks: 12</Text>
+              </Body>
+            </CardItem>
+            <CardItem footer bordered>
+              <Text>GeekyAnts</Text>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem header bordered>
+              <Text>Rainbow Beach</Text>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+                <Text>Total Docks: 9</Text>
+              </Body>
+            </CardItem>
+            <CardItem footer bordered>
+              <Text>GeekyAnts</Text>
+            </CardItem>
+          </Card>
+        </Content>
       </Container>
     );
   }
