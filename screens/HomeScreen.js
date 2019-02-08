@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
 import { Container, Text, Button, Header, Content, Form, Item, Input, Label } from 'native-base';
 export default class FixedLabelExample extends Component {
   render() {
@@ -18,11 +19,15 @@ export default class FixedLabelExample extends Component {
               <Input />
             </Item>
           </Form>
-          <Button>
-            <Text>Hello World!</Text>
+          <Button style={{
+            alignSelf: 'center'
+          }}>
+            <Text>Login</Text>
           </Button>
         </Content>
       </Container>
     );
   }
 }
+
+

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Header, Content, Accordion } from "native-base";
+import { Container, Text, Header, Content, Accordion } from "native-base";
 // const dataArray = [
 //   { title: "Bike", content: [{ red: 10, blue: 20 }] },
 //   { title: "Bus", content: "Lorem ipsum dolor sit amet" },
