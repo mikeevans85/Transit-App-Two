@@ -28,6 +28,8 @@ export default class FixedLabelExample extends Component {
           <Thumbnail style = {{
             height: 400,
             width: 300,
+            paddingRight: 200,
+            paddingLeft: 200,
           }}square large source={{uri: uri}} />
         </Content>
       </Container>

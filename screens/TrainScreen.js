@@ -50,7 +50,7 @@ export default class TrainScreen extends Component {
             rightOpenValue={-75}
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data =>
-              <ListItem style={{ backgroundColor: 'green' }}>
+              <ListItem>
                 <Text> {data} </Text>
               </ListItem>}
             renderLeftHiddenRow={data =>
