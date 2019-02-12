@@ -26,7 +26,7 @@ export default class FixedLabelExample extends Component {
               <Label>Password</Label>
               <Input 
               style={{height: 40}}
-              onChangeText={(text) => this.setState({password})}
+              onChangeText={(password) => this.setState({password})}
               value={this.state.password}/>
             </Item>
           </Form>
