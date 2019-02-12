@@ -13,6 +13,17 @@ const datas = [
 'Pink Line',
 ];
 
+const colors = [
+'red',
+'blue',
+'green',
+'brown',
+'orange',
+'yellow',
+'purple',
+'pink',
+]
+
 export default class TrainScreen extends Component {
     constructor(props) {
     super(props);
@@ -39,12 +50,12 @@ export default class TrainScreen extends Component {
             rightOpenValue={-75}
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data =>
-              <ListItem>
+              <ListItem style={{ backgroundColor: 'green' }}>
                 <Text> {data} </Text>
               </ListItem>}
             renderLeftHiddenRow={data =>
-              <Button full onPress={() => alert(data)}>
-                <Icon active name="information-circle" />
+              <Button full onPress={() => alert('Favorited!')}>
+                <Icon active name="star" />
               </Button>}
             renderRightHiddenRow={(data, secId, rowId, rowMap) =>
               <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
