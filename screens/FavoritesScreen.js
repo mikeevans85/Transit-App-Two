@@ -1,7 +1,8 @@
-import React from "react";
-import { FlatList, ActivityIndicator, Text, View } from "react-native";
+import React, { Component } from "react";
+import { Container, Header, Content, Card, CardItem, Text, Body, Icon, Left, Button } from "native-base";
+import { FlatList, ActivityIndicator, View } from "react-native";
 
-export default class FetchExample extends React.Component {
+export default class CardItemBordered extends Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true };
@@ -28,19 +29,27 @@ export default class FetchExample extends React.Component {
     if (this.state.isLoading) {
       return (
         <View style={{ flex: 1, padding: 20 }}>
-          <ActivityIndicator />
+          <Card />
         </View>
       );
     }
 
     return (
-      <View style={{ flex: 1, paddingTop: 20 }}>
+      <View>
         <FlatList
           data={this.state.dataSource}
           renderItem={({ item }) => (
-            <Text>
-              {item.title}, {item.releaseYear}
-            </Text>
+            <Card>
+              <CardItem cardBody>
+                <Text>{item.title}</Text>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Text>Available Bikes: {item.releaseYear}</Text>
+                  <Text>Available Docks: {item.id}</Text>
+                </Body>
+              </CardItem>
+            </Card>
           )}
           keyExtractor={({ id }, index) => id}
         />
