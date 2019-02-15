@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Header, Content, Card, CardItem, Text, Body } from "native-base";
+import { Container, Header, Content, Card, CardItem, Text, Body, Icon, Left, Button } from "native-base";
 import { FlatList, ActivityIndicator, View } from "react-native";
 
 export default class CardItemBordered extends Component {
@@ -35,7 +35,7 @@ export default class CardItemBordered extends Component {
     }
 
     return (
-      <View style={{ flex: 1, paddingTop: 20 }}>
+      <View>
         <FlatList
           data={this.state.dataSource}
           renderItem={({ item }) => (
@@ -47,6 +47,11 @@ export default class CardItemBordered extends Component {
                 <Body>
                   <Text>Available Bikes: {item.releaseYear}</Text>
                   <Text>Available Docks: {item.id}</Text>
+                  <Left>
+                    <Button transparent>
+                      <Icon name="star" type="Ionicons" />
+                    </Button>
+                  </Left>
                 </Body>
               </CardItem>
             </Card>
