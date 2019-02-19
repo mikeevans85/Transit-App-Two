@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 import { ListView } from 'react-native';
+import HomeStack from "../navigation/MainTabNavigator";
 import { Badge, Button, Container, Header, Content, Icon, List, ListItem, Text } from 'native-base';
 
 const datas = [
@@ -40,6 +42,7 @@ export default class TrainScreen extends Component {
     this.setState({ listViewData: newData });
   }
   render() {
+    const {navigate} = this.props.navigation;
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <Container>
@@ -50,7 +53,8 @@ export default class TrainScreen extends Component {
             rightOpenValue={-75}
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data =>
-              <ListItem>
+              <ListItem
+              onPress={() => navigate('TrainStopStack')}>
                 <Text> {data} </Text>
               </ListItem>}
             renderLeftHiddenRow={data =>

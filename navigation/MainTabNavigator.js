@@ -7,11 +7,16 @@ import HomeScreen from "../screens/HomeScreen";
 import TrainScreen from "../screens/TrainScreen";
 import BusScreen from "../screens/BusScreen";
 import BikeScreen from "../screens/BikeScreen";
-
+import TrainStopScreen from "../screens/TrainStopScreen";
 import FavoritesScreen from "../screens/FavoritesScreen";
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen
+  Home: HomeScreen,
+  Train: TrainScreen,
+  Bus: BusScreen,
+  Bike: BikeScreen,
+  Favorites: FavoritesScreen,
+  TrainStop: TrainStopScreen
 });
 
 HomeStack.navigationOptions = {
@@ -57,10 +62,20 @@ FavoritesStack.navigationOptions = {
   tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-star" : "md-star"} />
 };
 
+const TrainStopStack = createStackNavigator({
+  TrainStop: TrainStopScreen
+});
+
+TrainStopStack.navigationOptions = {
+  tabBarLabel: "Train Stop",
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-star" : "md-star"} />
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   TrainStack,
   BusStack,
   BikeStack,
-  FavoritesStack
+  FavoritesStack,
+  TrainStopStack
 });
