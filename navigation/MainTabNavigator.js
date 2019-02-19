@@ -16,7 +16,7 @@ const HomeStack = createStackNavigator({
   Bus: BusScreen,
   Bike: BikeScreen,
   Favorites: FavoritesScreen,
-  TrainStop: TrainStopScreen
+  // TrainStop: TrainStopScreen
 });
 
 HomeStack.navigationOptions = {
@@ -66,10 +66,10 @@ const TrainStopStack = createStackNavigator({
   TrainStop: TrainStopScreen
 });
 
-TrainStopStack.navigationOptions = {
-  tabBarLabel: "Train Stop",
-  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-star" : "md-star"} />
-};
+// TrainStopStack.navigationOptions = {
+//   tabBarLabel: "Train Stop",
+//   tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-star" : "md-star"} />
+// };
 
 export default createBottomTabNavigator({
   HomeStack,
@@ -77,5 +77,5 @@ export default createBottomTabNavigator({
   BusStack,
   BikeStack,
   FavoritesStack,
-  TrainStopStack
+  // TrainStopStack
 });
