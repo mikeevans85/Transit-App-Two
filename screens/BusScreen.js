@@ -294,6 +294,9 @@ export default class TrainScreen extends Component {
             renderRow={data => (
               <ListItem style={{ border: "blue" }}>
                 <Text> {data} </Text>
+                <Button transparent>
+                  <Icon name="star" type="Ionicons" />
+                </Button>
               </ListItem>
             )}
             renderLeftHiddenRow={data => (

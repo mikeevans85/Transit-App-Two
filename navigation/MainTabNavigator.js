@@ -1,87 +1,60 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import React from "react";
+import { Platform } from "react-native";
+import { createStackNavigator, createBottomTabNavigator } from "react-navigation";
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import TrainScreen from '../screens/TrainScreen';
-import BusScreen from '../screens/BusScreen';
-import BikeScreen from '../screens/BikeScreen';
+import TabBarIcon from "../components/TabBarIcon";
+import HomeScreen from "../screens/HomeScreen";
+import TrainScreen from "../screens/TrainScreen";
+import BusScreen from "../screens/BusScreen";
+import BikeScreen from "../screens/BikeScreen";
 
-import FavoritesScreen from '../screens/FavoritesScreen';
+import FavoritesScreen from "../screens/FavoritesScreen";
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeScreen
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-person`
-          : 'md-person'
-      }
-    />
-  ),
+  tabBarLabel: "Home",
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? `ios-home` : "md-home"} />
 };
 
 const TrainStack = createStackNavigator({
-  Train: TrainScreen,
+  Train: TrainScreen
 });
 
 TrainStack.navigationOptions = {
-  tabBarLabel: 'Train',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-train' : 'md-train'}
-    />
-  ),
+  tabBarLabel: "Train",
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-train" : "md-train"} />
 };
 
 const BusStack = createStackNavigator({
-  Bus: BusScreen,
+  Bus: BusScreen
 });
 
 BusStack.navigationOptions = {
-  tabBarLabel: 'Bus',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-bus' : 'md-bus'}
-    />
-  ),
+  tabBarLabel: "Bus",
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-bus" : "md-bus"} />
 };
 
 const BikeStack = createStackNavigator({
-  Bike: BikeScreen,
+  Bike: BikeScreen
 });
 
 BikeStack.navigationOptions = {
-  tabBarLabel: 'Bike',
+  tabBarLabel: "Bike",
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-bicycle' : 'md-bicycle'}
-    />
-  ),
+    <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-bicycle" : "md-bicycle"} />
+  )
 };
 
 const FavoritesStack = createStackNavigator({
-  Favorites: FavoritesScreen,
+  Favorites: FavoritesScreen
 });
 
 FavoritesStack.navigationOptions = {
-  tabBarLabel: 'Favorites',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
-    />
-  ),
+  tabBarLabel: "Favorites",
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-star" : "md-star"} />
 };
 
 export default createBottomTabNavigator({
@@ -89,5 +62,5 @@ export default createBottomTabNavigator({
   TrainStack,
   BusStack,
   BikeStack,
-  FavoritesStack,
+  FavoritesStack
 });
