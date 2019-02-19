@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
 import { Container, Text, Button, Header, Content, Form, Item, Input, Label, Thumbnail } from 'native-base';
 export default class FixedLabelExample extends Component {
+   constructor(props) {
+    super(props);
+    this.state = { text: '' };
+  }
   render() {
     const uri = "https://previews.123rf.com/images/ljupco/ljupco1403/ljupco140300270/26863909-smiling-senior-man-holding-a-big-black-arrow-pointing-down-isolated-on-white-background.jpg"
     return (
@@ -13,11 +17,17 @@ export default class FixedLabelExample extends Component {
           <Form>
             <Item fixedLabel>
               <Label>Username</Label>
-              <Input />
+              <Input 
+              style={{height: 40}}
+              onChangeText={(text) => this.setState({text})}
+              value={this.state.text}/>
             </Item>
             <Item fixedLabel last>
               <Label>Password</Label>
-              <Input />
+              <Input 
+              style={{height: 40}}
+              onChangeText={(password) => this.setState({password})}
+              value={this.state.password}/>
             </Item>
           </Form>
           <Button style={{
