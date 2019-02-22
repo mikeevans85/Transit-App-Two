@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Header, Content, Card, CardItem, Text, Body, Icon, Left, Button } from "native-base";
 import { FlatList, ActivityIndicator, View } from "react-native";
+import BikeRackScreen from "../navigation/AppNavigator";
 
 export default class CardItemBordered extends Component {
   constructor(props) {
@@ -36,6 +37,10 @@ export default class CardItemBordered extends Component {
 
     return (
       <View>
+        <Button iconRight onPress={() => this.props.navigation.navigate("BikeRacks")}>
+          <Text>Find Bike Parking Nearby</Text>
+          <Icon name="bicycle" />
+        </Button>
         <FlatList
           data={this.state.dataSource}
           renderItem={({ item }) => (

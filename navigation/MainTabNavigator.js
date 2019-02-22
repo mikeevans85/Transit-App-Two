@@ -8,6 +8,7 @@ import TrainScreen from "../screens/TrainScreen";
 import BusScreen from "../screens/BusScreen";
 import BikeScreen from "../screens/BikeScreen";
 import TrainStopScreen from "../screens/TrainStopScreen";
+import BikeRackScreen from "../screens/BikeRacks";
 import FavoritesScreen from "../screens/FavoritesScreen";
 
 const HomeStack = createStackNavigator({
@@ -17,6 +18,7 @@ const HomeStack = createStackNavigator({
   Bike: BikeScreen,
   Favorites: FavoritesScreen,
   // TrainStop: TrainStopScreen
+  BikeRacks: BikeRackScreen
 });
 
 HomeStack.navigationOptions = {
@@ -66,6 +68,10 @@ const TrainStopStack = createStackNavigator({
   TrainStop: TrainStopScreen
 });
 
+const BikeRack = createStackNavigator({
+  BikeRack: BikeRackScreen
+});
+
 // TrainStopStack.navigationOptions = {
 //   tabBarLabel: "Train Stop",
 //   tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-star" : "md-star"} />
@@ -76,6 +82,6 @@ export default createBottomTabNavigator({
   TrainStack,
   BusStack,
   BikeStack,
-  FavoritesStack,
+  FavoritesStack
   // TrainStopStack
 });
