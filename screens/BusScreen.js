@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { ListView } from "react-native";
-import { Badge, Button, Container, Header, Content, Icon, List, ListItem, Text } from "native-base";
+import { ListView, AppRegistry, StyleSheet, TouchableOpacity, Text, View } from "react-native";
+import { Badge, Button, Container, Header, Content, Icon, List, ListItem, Right } from "native-base";
+import FavoritesScreen from "../screens/FavoritesScreen";
 
 const datas = [
   "1Bronzeville/Union Station",
@@ -264,7 +265,27 @@ const datas = [
   "205Chicago/Golf"
 ];
 
-const colors = ["blue"];
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  countContainer: {
+    alignItems: "center",
+    padding: 10
+  },
+  countText: {
+    color: "#FF00FF"
+  }
+});
+
+AppRegistry.registerComponent("App", () => App);
 
 export default class TrainScreen extends Component {
   constructor(props) {
@@ -281,6 +302,7 @@ export default class TrainScreen extends Component {
     newData.splice(rowId, 1);
     this.setState({ listViewData: newData });
   }
+
   render() {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
@@ -292,7 +314,7 @@ export default class TrainScreen extends Component {
             rightOpenValue={-75}
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data => (
-              <ListItem style={{ border: "blue" }}>
+              <ListItem>
                 <Text> {data} </Text>
                 <Button transparent>
                   <Icon name="star" type="Ionicons" />
