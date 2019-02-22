@@ -62,6 +62,7 @@ export default class TrainScreen extends Component {
   }
   render() {
     const {navigate} = this.props.navigation;
+    
     const location = this.state.location.timestamp;
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
