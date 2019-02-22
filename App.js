@@ -1,14 +1,35 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View, Text } from "react-native";
-import { AppLoading, Asset, Font, Icon } from "expo";
+import { AppLoading, Asset, Font, Icon, Location, Permissions } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
 
 export default class App extends React.Component {
   state = {
-    isLoadingComplete: false
+    isLoadingComplete: false,
+    location: null
+  };
+
+  componentDidMount() {
+    this.getLocationAsync();
+  }
+
+   getLocationAsync = async () => {
+    const { status } = await Permissions.askAsync(Permissions.LOCATION);
+ 
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to access location was denied',
+      });
+      return;
+    }
+ 
+    const location = await Location.getCurrentPositionAsync({});
+    this.setState({ location });
   };
 
   render() {
+    
+  
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading

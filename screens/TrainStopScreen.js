@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
-import {createStackNavigator, createAppContainer} from 'react-navigation';
-import { ListView } from 'react-native';
-// import HomeStack from "../navigation/MainTabNavigator";
-import { Badge, Button, Container, Header, Content, Icon, List, ListItem, Text } from 'native-base';
+import React, { Component } from "react";
+import { Text } from "native-base";
+import { View } from "react-native";
 
-
-export default class TrainStopScreen extends Component {
-    constructor(props) {
+export default class extends Component {
+	constructor(props) {
     super(props);
-    this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    this.state = {
-      basic: true,
-      listViewData: datas,
-    };
-   }
- }
+    this.state = { isLoading: true };
+  };
+
+  render() {
+    const name = this.props.navigation.getParam('train', true);
+    const location = this.props.navigation.getParam('location', true);
+    return (
+      <View>
+        <Text>{name} {location}</Text>
+      </View>
+    );
+  }
+}

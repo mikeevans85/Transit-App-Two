@@ -16,7 +16,7 @@ const HomeStack = createStackNavigator({
   Bus: BusScreen,
   Bike: BikeScreen,
   Favorites: FavoritesScreen,
-  // TrainStop: TrainStopScreen
+  TrainStop: TrainStopScreen
 });
 
 HomeStack.navigationOptions = {
