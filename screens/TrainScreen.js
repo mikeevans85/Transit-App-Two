@@ -34,7 +34,9 @@ export default class TrainScreen extends Component {
     this.state = {
       basic: true,
       listViewData: datas,
-      location: []
+      latitude: '',
+      longitude: ''
+      // coords: ''
     };
   }
   componentDidMount() {
@@ -52,18 +54,25 @@ export default class TrainScreen extends Component {
     }
  
     const location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
-  };
+
+    this.setState({ 
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    });
+  }
+
   deleteRow(secId, rowId, rowMap) {
     rowMap[`${secId}${rowId}`].props.closeRow();
     const newData = [...this.state.listViewData];
     newData.splice(rowId, 1);
     this.setState({ listViewData: newData });
   }
+
   render() {
     const {navigate} = this.props.navigation;
-    
-    const location = this.state.location.timestamp;
+    // const location = this.state.location['coords']['latitude']
+    // const location = this.state.location.coords;
+    console.log(this.state.latitude, this.state.longitude)
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <Container>
@@ -76,7 +85,7 @@ export default class TrainScreen extends Component {
             renderRow={data =>
               <ListItem
               onPress={() => this.props.navigation.navigate('TrainStop', { train: data, location: location })}>
-                <Text> {data} {location} </Text>
+                <Text> {data} {this.state.latitude}</Text>
               </ListItem>}
             renderLeftHiddenRow={data =>
               <Button full onPress={() => alert('Favorited!')}>
