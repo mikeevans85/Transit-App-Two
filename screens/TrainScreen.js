@@ -70,8 +70,6 @@ export default class TrainScreen extends Component {
 
   render() {
     const {navigate} = this.props.navigation;
-    // const location = this.state.location['coords']['latitude']
-    // const location = this.state.location.coords;
     console.log(this.state.latitude, this.state.longitude)
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
@@ -84,7 +82,7 @@ export default class TrainScreen extends Component {
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data =>
               <ListItem
-              onPress={() => this.props.navigation.navigate('TrainStop', { train: data, location: location })}>
+              onPress={() => this.props.navigation.navigate('TrainStop', { train: data, latitude: this.state.latitude })}>
                 <Text> {data} {this.state.latitude}</Text>
               </ListItem>}
             renderLeftHiddenRow={data =>

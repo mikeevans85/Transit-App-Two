@@ -10,10 +10,10 @@ export default class extends Component {
 
   render() {
     const name = this.props.navigation.getParam('train', true);
-    const location = this.props.navigation.getParam('location', true);
+    const latitude = this.props.navigation.getParam('latitude', true);
     return (
       <View>
-        <Text>{name} {location}</Text>
+        <Text>{name} {latitude}</Text>
       </View>
     );
   }
