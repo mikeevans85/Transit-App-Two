@@ -10,6 +10,8 @@ import BikeScreen from "../screens/BikeScreen";
 import TrainStopScreen from "../screens/TrainStopScreen";
 import BikeRackScreen from "../screens/BikeRacks";
 import FavoritesScreen from "../screens/FavoritesScreen";
+import BusShowScreen from "../screens/BusShow";
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -17,8 +19,13 @@ const HomeStack = createStackNavigator({
   Bus: BusScreen,
   Bike: BikeScreen,
   Favorites: FavoritesScreen,
+<<<<<<< HEAD
   // TrainStop: TrainStopScreen
   BikeRacks: BikeRackScreen
+=======
+  TrainStop: TrainStopScreen,
+  BusShow: BusShowScreen
+>>>>>>> 17ebc638b6d182aa74ce8553acb4418ff8a8c982
 });
 
 HomeStack.navigationOptions = {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ListView, AppRegistry, StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { Badge, Button, Container, Header, Content, Icon, List, ListItem, Right } from "native-base";
+import { Location, Permissions } from "expo";
 import FavoritesScreen from "../screens/FavoritesScreen";
 
 const datas = [
@@ -147,122 +148,122 @@ const datas = [
   "192U of Chicago HospitalsExpress",
   "201Central/Ridge",
   "206Evanston Circulator",
-  "Former Routes[edit]",
-  "Route Name",
-  "X3King Drive Express",
-  "X4Cottage Grove Express",
-  "5Jeffery Local",
-  "5BYates/Colfax",
-  "6Van Buren",
-  "6Garfield",
-  "6BYates/Colfax",
-  "7AHarrison/Adams",
-  "10Lincoln/Larrabee",
-  "10Lunch Loop",
-  "13Elston",
-  "13Southwest Skokie",
-  "1414th Street",
-  "14Devon/Cicero",
-  "15Canal/Wacker",
-  "15Canal/Wacker",
-  "16Lake",
-  "17Westchester",
-  "19Devon/Northwest Express",
-  "X20Washington/Madison Express",
-  "21AFulton/21st Street",
-  "21BWest Cermak",
-  "23Morgan/Racine",
-  "23Washington Express",
-  "24Windsor Park",
-  "25West Cermak",
-  "2626th",
-  "27South Deering",
-  "X28Stony Island Express",
-  "32Hammond",
-  "32West 31st",
-  "33Magnificent Mile Express",
-  "36ADevon",
-  "36AState",
-  "37AWebster/Racine",
-  "38Lincoln/Rosehill",
-  "38Indiana",
-  "38Michigan Express",
-  "38Ogden/Taylor",
-  "40Chinatown/Pilsen Shuttle",
-  "40Planetarium",
-  "40O'Hare Express",
-  "41Elston/Clybourn",
-  "42Halsted/Archer",
-  "45Ashland/Archer",
-  "46Southport",
-  "47AWest 47th",
-  "49ASouth Western",
-  "50ASouth Damen",
-  "53ALSouth Pulaski Limited",
-  "X54Cicero Express",
-  "55Elston",
-  "X55Garfield Express",
-  "56ANorth Milwaukee",
-  "58Ogden",
-  "58AOgden Extension",
-  "61Montrose Beach",
-  "61Archer/Franklin Express",
-  "X62Archer Express",
-  "64Argo",
-  "64Foster/Lawrence",
-  "64Foster/Canfield",
-  "69Cumberland/East River",
-  "X80Irving Park Express",
-  "8383rd",
-  "89Yates/95th",
-  "89North Kedzie",
-  "90NNorth Harlem",
-  "92AWest Foster",
-  "92WWest Foster",
-  "9393rd",
-  "95E93rd/95th",
-  "95WWest 95th",
-  "98Roscoe",
-  "98Ogden Extension",
-  "99Stevenson Express",
-  "99MStevenson Express",
-  "X99Chicago Manufacturing Campus Express",
-  "104Pullman",
-  "110Marquette",
-  "119Vincennes/119th",
-  "122Illinois Center/North Western Express",
-  "123Illinois Center/Union Express",
-  "127Jackson/Independence",
-  "127Madison/Roosevelt Circulator",
-  "128Wacker/Orleans",
-  "129West Loop/South Loop",
-  "131Washington",
-  "132Goose Island Express",
-  "134Diversey",
-  "136Douglas",
-  "142Union Depot/Shopping District",
-  "144Marine/Michigan Express",
-  "145Wilson/Michigan Express",
-  "148Monroe Parking Lot",
-  "149Michigan State/Wacker",
-  "N151Sheridan (Owl)",
-  "153Wilson/Michigan",
-  "154Lunt",
-  "154Wrigley Field Express",
-  "155AWest Devon",
-  "158Wacker/North Western Station",
-  "162Pulaski/Stevenson Express",
-  "164Narragansett Express",
-  "168UIC/Pilsen Express",
-  "170U of Chicago/Midway",
-  "173U of Chicago/LakeviewExpress",
-  "174U of Chicago/Garfield Stations",
-  "200Main Shuttle",
-  "N201Central/Sherman Night Bus",
-  "202Main/Emerson",
-  "203Ridge/Grant",
-  "204Dodge",
-  "205Chicago/Golf"
+  // "Former Routes[edit]",
+  // "Route Name",
+  // "X3King Drive Express",
+  // "X4Cottage Grove Express",
+  // "5Jeffery Local",
+  // "5BYates/Colfax",
+  // "6Van Buren",
+  // "6Garfield",
+  // "6BYates/Colfax",
+  // "7AHarrison/Adams",
+  // "10Lincoln/Larrabee",
+  // "10Lunch Loop",
+  // "13Elston",
+  // "13Southwest Skokie",
+  // "1414th Street",
+  // "14Devon/Cicero",
+  // "15Canal/Wacker",
+  // "15Canal/Wacker",
+  // "16Lake",
+  // "17Westchester",
+  // "19Devon/Northwest Express",
+  // "X20Washington/Madison Express",
+  // "21AFulton/21st Street",
+  // "21BWest Cermak",
+  // "23Morgan/Racine",
+  // "23Washington Express",
+  // "24Windsor Park",
+  // "25West Cermak",
+  // "2626th",
+  // "27South Deering",
+  // "X28Stony Island Express",
+  // "32Hammond",
+  // "32West 31st",
+  // "33Magnificent Mile Express",
+  // "36ADevon",
+  // "36AState",
+  // "37AWebster/Racine",
+  // "38Lincoln/Rosehill",
+  // "38Indiana",
+  // "38Michigan Express",
+  // "38Ogden/Taylor",
+  // "40Chinatown/Pilsen Shuttle",
+  // "40Planetarium",
+  // "40O'Hare Express",
+  // "41Elston/Clybourn",
+  // "42Halsted/Archer",
+  // "45Ashland/Archer",
+  // "46Southport",
+  // "47AWest 47th",
+  // "49ASouth Western",
+  // "50ASouth Damen",
+  // "53ALSouth Pulaski Limited",
+  // "X54Cicero Express",
+  // "55Elston",
+  // "X55Garfield Express",
+  // "56ANorth Milwaukee",
+  // "58Ogden",
+  // "58AOgden Extension",
+  // "61Montrose Beach",
+  // "61Archer/Franklin Express",
+  // "X62Archer Express",
+  // "64Argo",
+  // "64Foster/Lawrence",
+  // "64Foster/Canfield",
+  // "69Cumberland/East River",
+  // "X80Irving Park Express",
+  // "8383rd",
+  // "89Yates/95th",
+  // "89North Kedzie",
+  // "90NNorth Harlem",
+  // "92AWest Foster",
+  // "92WWest Foster",
+  // "9393rd",
+  // "95E93rd/95th",
+  // "95WWest 95th",
+  // "98Roscoe",
+  // "98Ogden Extension",
+  // "99Stevenson Express",
+  // "99MStevenson Express",
+  // "X99Chicago Manufacturing Campus Express",
+  // "104Pullman",
+  // "110Marquette",
+  // "119Vincennes/119th",
+  // "122Illinois Center/North Western Express",
+  // "123Illinois Center/Union Express",
+  // "127Jackson/Independence",
+  // "127Madison/Roosevelt Circulator",
+  // "128Wacker/Orleans",
+  // "129West Loop/South Loop",
+  // "131Washington",
+  // "132Goose Island Express",
+  // "134Diversey",
+  // "136Douglas",
+  // "142Union Depot/Shopping District",
+  // "144Marine/Michigan Express",
+  // "145Wilson/Michigan Express",
+  // "148Monroe Parking Lot",
+  // "149Michigan State/Wacker",
+  // "N151Sheridan (Owl)",
+  // "153Wilson/Michigan",
+  // "154Lunt",
+  // "154Wrigley Field Express",
+  // "155AWest Devon",
+  // "158Wacker/North Western Station",
+  // "162Pulaski/Stevenson Express",
+  // "164Narragansett Express",
+  // "168UIC/Pilsen Express",
+  // "170U of Chicago/Midway",
+  // "173U of Chicago/LakeviewExpress",
+  // "174U of Chicago/Garfield Stations",
+  // "200Main Shuttle",
+  // "N201Central/Sherman Night Bus",
+  // "202Main/Emerson",
+  // "203Ridge/Grant",
+  // "204Dodge",
+  // "205Chicago/Golf"
 ];
 
 const styles = StyleSheet.create({
@@ -293,9 +294,34 @@ export default class TrainScreen extends Component {
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       basic: true,
-      listViewData: datas
+      listViewData: datas,
+      latitude: '',
+      longitude: ''
     };
   }
+   componentDidMount() {
+    this.getLocationAsync();
+  }
+
+   getLocationAsync = async () => {
+    const { status } = await Permissions.askAsync(Permissions.LOCATION);
+ 
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to access location was denied',
+      });
+      return;
+    }
+ 
+    const location = await Location.getCurrentPositionAsync({});
+   
+
+    this.setState({ 
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    });
+  }
+  
   deleteRow(secId, rowId, rowMap) {
     rowMap[`${secId}${rowId}`].props.closeRow();
     const newData = [...this.state.listViewData];
@@ -304,6 +330,7 @@ export default class TrainScreen extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <Container>
@@ -314,7 +341,8 @@ export default class TrainScreen extends Component {
             rightOpenValue={-75}
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data => (
-              <ListItem>
+              <ListItem
+              onPress={() => this.props.navigation.navigate('BusShow', { bus: data, latitude: latitude, longitude: longitude })}>
                 <Text> {data} </Text>
                 <Button transparent>
                   <Icon name="star" type="Ionicons" />
