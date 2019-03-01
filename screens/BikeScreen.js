@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Location, Permissions } from "expo";
 import { Container, Header, Content, Card, CardItem, Text, Body, Icon, Left, Button } from "native-base";
 import { FlatList, ActivityIndicator, View } from "react-native";
-import BikeRackScreen from "../navigation/AppNavigator";
+// import BikeRackScreen from "../navigation/AppNavigator";
 
 export default class CardItemBordered extends Component {
   constructor(props) {
