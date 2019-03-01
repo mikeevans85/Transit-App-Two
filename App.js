@@ -6,10 +6,11 @@ import AppNavigator from "./navigation/AppNavigator";
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
-    location: null,
+    latitude: '',
+    longitude: ''
   };
 
-  componentDidMount() {
+ componentDidMount() {
     this.getLocationAsync();
   }
 
@@ -24,8 +25,12 @@ export default class App extends React.Component {
     }
  
     const location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
-  };
+
+    this.setState({ 
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    });
+  }
 
   render() {
     

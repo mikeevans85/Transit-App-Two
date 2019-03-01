@@ -36,7 +36,6 @@ export default class TrainScreen extends Component {
       listViewData: datas,
       latitude: '',
       longitude: ''
-      // coords: ''
     };
   }
   componentDidMount() {
@@ -82,7 +81,7 @@ export default class TrainScreen extends Component {
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data =>
               <ListItem
-              onPress={() => this.props.navigation.navigate('TrainStop', { train: data, latitude: this.state.latitude })}>
+              onPress={() => this.props.navigation.navigate('TrainStop', { train: data, latitude: this.state.latitude, longitude: this.state.longitude})}>
                 <Text> {data} </Text>
               </ListItem>}
             renderLeftHiddenRow={data =>
