@@ -83,7 +83,7 @@ export default class TrainScreen extends Component {
             renderRow={data =>
               <ListItem
               onPress={() => this.props.navigation.navigate('TrainStop', { train: data, latitude: this.state.latitude })}>
-                <Text> {data} {this.state.latitude}</Text>
+                <Text> {data} </Text>
               </ListItem>}
             renderLeftHiddenRow={data =>
               <Button full onPress={() => alert('Favorited!')}>

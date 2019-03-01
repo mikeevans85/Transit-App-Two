@@ -295,7 +295,8 @@ export default class TrainScreen extends Component {
     this.state = {
       basic: true,
       listViewData: datas,
-      location: []
+      latitude: '',
+      longitude: ''
     };
   }
    componentDidMount() {
@@ -313,8 +314,13 @@ export default class TrainScreen extends Component {
     }
  
     const location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
-  }; 
+   
+
+    this.setState({ 
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    });
+  }
   
   deleteRow(secId, rowId, rowMap) {
     rowMap[`${secId}${rowId}`].props.closeRow();
@@ -325,7 +331,6 @@ export default class TrainScreen extends Component {
 
   render() {
     const {navigate} = this.props.navigation;
-    const location = this.state.location.timestamp;
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <Container>
@@ -337,7 +342,7 @@ export default class TrainScreen extends Component {
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data => (
               <ListItem
-              onPress={() => this.props.navigation.navigate('BusShow', { bus: data, location: location })}>
+              onPress={() => this.props.navigation.navigate('BusShow', { bus: data, latitude: latitude, longitude: longitude })}>
                 <Text> {data} </Text>
                 <Button transparent>
                   <Icon name="star" type="Ionicons" />
