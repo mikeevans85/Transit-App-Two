@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 import { Location, Permissions } from "expo";
 import { Container, Header, Content, Card, CardItem, Text, Body, Icon, Left, Button } from "native-base";
 import { FlatList, ActivityIndicator, View } from "react-native";
@@ -48,7 +49,7 @@ export default class CardItemBordered extends Component {
             <Card>
               <CardItem cardBody>
                 <Text>{item.title}</Text>
-                <Text>{this.state.latitude}</Text>
+                <Text>{this.props.latitude}</Text>
               </CardItem>
               <CardItem>
                 <Body>

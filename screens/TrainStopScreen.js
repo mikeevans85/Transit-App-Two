@@ -13,22 +13,23 @@ export default class extends Component {
     };
   }
 
-
-
   componentDidMount() {
-    return fetch('https://mywebsite.com/endpoint/', {
+    return fetch('https://hidden-gorge-19159.herokuapp.com/api/stations/', {
   method: 'POST',
+  mode: "cors",
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    firstParam: this.location,
-    secondParam: 'yourOtherValue',
+    api_name: "divvy",
+    latitude: 41.939743,
+    longitude: -87.658865,
   }),
 }).then((response) => response.json())
     .then((responseJson) => {
-      return responseJson.movies;
+      console.log(responseJson.data);
+      return responseJson.data;
     })
     .catch((error) => {
       console.error(error);
@@ -58,7 +59,7 @@ export default class extends Component {
                 </Text>
               </Body>
             </CardItem>
-            <CardItem footer button onPress={() => alert("This is Card Footer")}>
+            <CardItem footer button onPress={() => alert("This is Other Things Oh Wow")}>
               <Text>Other Things Can Go Here Oh Wow</Text>
             </CardItem>
           </Card>

@@ -47,7 +47,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-          <AppNavigator location={this.state.location} />
+          <AppNavigator latitude={this.state.latitude} longitude={this.state.longitude} />
         </View>
       );
     }

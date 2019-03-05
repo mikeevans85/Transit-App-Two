@@ -4,8 +4,28 @@ import { Container, Text, Button, Header, Content, Form, Item, Input, Label, Thu
 export default class FixedLabelExample extends Component {
    constructor(props) {
     super(props);
-    this.state = { text: '' };
+    this.state = { 
+      text: '',
+      password: '' };
   }
+
+  sendLoginInfo() {
+    // return fetch("BACKEND SERVER")
+    //   .then(response => response.json())
+    //   .then(responseJson => {
+    //     this.setState(
+    //       {
+    //         isLoading: false,
+    //         dataSource: responseJson.movies
+    //       },
+    //       function() {}
+    //     );
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
+  }
+
   render() {
     const uri = "https://previews.123rf.com/images/ljupco/ljupco1403/ljupco140300270/26863909-smiling-senior-man-holding-a-big-black-arrow-pointing-down-isolated-on-white-background.jpg"
     return (
@@ -32,7 +52,9 @@ export default class FixedLabelExample extends Component {
           </Form>
           <Button style={{
             alignSelf: 'center'
-          }}>
+          }}
+          onPress={() => sendLoginInfo()}
+            >
             <Text>Login</Text>
           </Button>
           <Thumbnail style = {{
