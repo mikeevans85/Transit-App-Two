@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Header, Content, Card, CardItem, Text, Body  } from "native-base";
-import { StyleSheet, View } from "react-native";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { Location, Permissions } from "expo";
 
 export default class extends Component {
@@ -44,6 +44,7 @@ export default class extends Component {
     const name = this.props.navigation.getParam('train', true);
     const latitude = this.props.navigation.getParam('latitude', true);
     const longitude = this.props.navigation.getParam('longitude', true);
+
     return (
     <Container>
         <Header>
@@ -58,7 +59,6 @@ export default class extends Component {
               <Body>
                 <Text>
                   {latitude}
-                  {longitude}
                   Other Train Info
                 </Text>
               </Body>
