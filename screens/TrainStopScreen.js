@@ -9,28 +9,32 @@ export default class extends Component {
     this.state = { 
       isLoading: true,
       latitude: '',
-      longitude: '' 
+      longitude: ''
     };
-  }
+  };
 
   componentDidMount() {
-    return fetch('https://hidden-gorge-19159.herokuapp.com/api/stations/', {
-  method: 'POST',
-  mode: "cors",
+    const name = this.props.navigation.getParam('train', true);
+    const latitude = this.props.navigation.getParam('latitude', true);
+    const longitude = this.props.navigation.getParam('longitude', true);
+    return fetch(`https://hidden-gorge-19159.herokuapp.com/api/stations/?api_name=lstops&latitude=${latitude}&longitude=${longitude}`, {
+  method: 'GET',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify({
-    api_name: "divvy",
-    latitude: 41.939743,
-    longitude: -87.658865,
-  }),
 }).then((response) => response.json())
     .then((responseJson) => {
-      console.log(responseJson.data);
+      console.log(responseJson);
       return responseJson.data;
     })
+    this.setState(
+          {
+            isLoading: false,
+            dataSource: responseJson.data,
+          },
+          function() {}
+        )
     .catch((error) => {
       console.error(error);
     });
