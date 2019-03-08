@@ -3,15 +3,21 @@ import {createStackNavigator, createAppContainer} from 'react-navigation';
 import { Location, Permissions } from "expo";
 import { Container, Header, Content, Card, CardItem, Text, Body, Icon, Left, Button } from "native-base";
 import { FlatList, ActivityIndicator, View } from "react-native";
-// import BikeRackScreen from "../navigation/AppNavigator";
 
 export default class CardItemBordered extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: true };
+    this.state = { 
+      isLoading: true,
+      latitude: '',
+      longitude: ''
+    };
   }
 
   componentDidMount() {
+
+
+    
     return fetch("https://facebook.github.io/react-native/movies.json")
       .then(response => response.json())
       .then(responseJson => {

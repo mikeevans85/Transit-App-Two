@@ -342,7 +342,7 @@ export default class TrainScreen extends Component {
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data => (
               <ListItem
-              onPress={() => this.props.navigation.navigate('BusShow', { bus: data, latitude: latitude, longitude: longitude })}>
+              onPress={() => this.props.navigation.navigate('BusShow', { bus: data, latitude: this.state.latitude, longitude: this.state.longitude })}>
                 <Text> {data} </Text>
                 <Button transparent>
                   <Icon name="star" type="Ionicons" />
