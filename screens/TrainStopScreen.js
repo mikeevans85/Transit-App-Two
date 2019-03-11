@@ -8,20 +8,25 @@ export default class extends Component {
     super(props);
     this.state = { 
       isLoading: true,
-      latitude: '',
-      longitude: ''
+      stuff: [],
+      name: ''
+      // api_id: ''
     };
   };
 
   componentDidMount() {
     const name = this.props.navigation.getParam('train', true);
-    const latitude = this.props.navigation.getParam('latitude', true);
-    const longitude = this.props.navigation.getParam('longitude', true);
-    return fetch(`https://hidden-gorge-19159.herokuapp.com/api/stations/?api_name=lstops&latitude=${latitude}&longitude=${longitude}`, {
-  method: 'GET',
+    // const stuff = this.props.navigation.getParam('stuff', true);
+    const color = name.replace(/ .*/,'').toLowerCase();
+    return fetch(`https://hidden-gorge-19159.herokuapp.com/api/lstops`, {
+  method: 'POST',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
+  },
+  body: {
+    station_id: 17082,
+    // color: 'color'
   },
 }).then((response) => response.json())
     .then((responseJson) => {
@@ -39,11 +44,9 @@ export default class extends Component {
       console.error(error);
     });
   }
-
   render() {
     const name = this.props.navigation.getParam('train', true);
-    const latitude = this.props.navigation.getParam('latitude', true);
-    const longitude = this.props.navigation.getParam('longitude', true);
+    const color = name.replace(/ .*/,'').toLowerCase();
 
     return (
     <Container>
@@ -58,7 +61,7 @@ export default class extends Component {
             <CardItem button onPress={() => alert("This is the latitude")}>
               <Body>
                 <Text>
-                  {latitude}
+                  {color}
                   Other Train Info
                 </Text>
               </Body>

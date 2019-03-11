@@ -58,7 +58,46 @@ export default class TrainScreen extends Component {
       latitude: location.coords.latitude,
       longitude: location.coords.longitude
     });
-  }
+
+    const latitude = this.state.latitude;
+    const longitude = this.state.longitude;
+
+    return fetch(`https://hidden-gorge-19159.herokuapp.com/api/stations/?api_name=lstops&latitude=${latitude}&longitude=${longitude}`, {
+  method: 'GET',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson);
+      return responseJson.data;
+    })
+    this.setState(
+          {
+            isLoading: false,
+            dataSource: responseJson.data,
+          },
+          function() {}
+        )
+    .catch((error) => {
+      console.error(error);
+    });
+    console.log(dataSource);
+  };
+
+  // arrayMaker() {
+  //   dataSource.forEach(function(i) {
+  //     idArray = [];
+  //     idArray.push(i);
+  //     console.log(idArray)
+  //     return idArray
+  //     this.setState(
+  //     {
+  //       idArray: idArray
+  //     })
+  //   })
+  // }
 
   deleteRow(secId, rowId, rowMap) {
     rowMap[`${secId}${rowId}`].props.closeRow();
@@ -69,7 +108,6 @@ export default class TrainScreen extends Component {
 
   render() {
     const {navigate} = this.props.navigation;
-    console.log(this.state.latitude, this.state.longitude)
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <Container>
@@ -81,7 +119,7 @@ export default class TrainScreen extends Component {
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={data =>
               <ListItem
-              onPress={() => this.props.navigation.navigate('TrainStop', { train: data, latitude: this.state.latitude, longitude: this.state.longitude})}>
+              onPress={() => this.props.navigation.navigate('TrainStop', { array: this.state.idArray, train: data, stuff: this.state.dataSource })}>
                 <Text> {data} </Text>
               </ListItem>}
             renderLeftHiddenRow={data =>
