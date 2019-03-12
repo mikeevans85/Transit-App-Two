@@ -10,7 +10,6 @@ export default class extends Component {
       isLoading: true,
       stuff: [],
       name: ''
-      // api_id: ''
     };
   };
 
