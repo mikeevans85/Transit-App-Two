@@ -38,6 +38,8 @@ export default class TrainScreen extends Component {
       longitude: ''
     };
   }
+
+  // Procures the GPS location using Expo's 'Location' component.
   componentDidMount() {
     this.getLocationAsync();
   }
@@ -59,10 +61,11 @@ export default class TrainScreen extends Component {
       longitude: location.coords.longitude
     });
 
+    // Sets the latitude and longitude to variables so they can be sent to the back end.
     const latitude = this.state.latitude;
     const longitude = this.state.longitude;
 
-    return fetch(`https://hidden-gorge-19159.herokuapp.com/api/stations/?api_name=lstops&latitude=${latitude}&longitude=${longitude}`, {
+    return fetch(`https://stormy-harbor-62033.herokuapp.com/api/stations/?api_name=lstops&latitude=${latitude}&longitude=${longitude}`, {
   method: 'GET',
   headers: {
     Accept: 'application/json',

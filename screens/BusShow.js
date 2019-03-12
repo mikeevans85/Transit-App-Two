@@ -17,7 +17,7 @@ export default class extends Component {
     const name = this.props.navigation.getParam('train', true);
     const latitude = this.props.navigation.getParam('latitude', true);
     const longitude = this.props.navigation.getParam('longitude', true);
-    return fetch(`https://hidden-gorge-19159.herokuapp.com/api/stations/?api_name=lstops&latitude=${latitude}&longitude=${longitude}`, {
+    return fetch(`https://stormy-harbor-62033.herokuapp.com/api/stations/?api_name=lstops&latitude=${latitude}&longitude=${longitude}`, {
   method: 'GET',
   headers: {
     Accept: 'application/json',

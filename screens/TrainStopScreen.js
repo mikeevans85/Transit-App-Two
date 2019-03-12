@@ -17,16 +17,16 @@ export default class extends Component {
     const name = this.props.navigation.getParam('train', true);
     // const stuff = this.props.navigation.getParam('stuff', true);
     const color = name.replace(/ .*/,'').toLowerCase();
-    return fetch(`https://hidden-gorge-19159.herokuapp.com/api/lstops`, {
+    return fetch(`https://stormy-harbor-62033.herokuapp.com/api/lstops`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
-  body: {
+  body:JSON.stringify( {
     station_id: 17082,
-    // color: 'color'
-  },
+    color: 'color'
+  }),
 }).then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);
@@ -43,6 +43,20 @@ export default class extends Component {
       console.error(error);
     });
   }
+
+  arrayMaker() {
+    dataSource.forEach(function(i) {
+      idArray = [];
+      idArray.push(i);
+      console.log(idArray)
+      return idArray
+      this.setState(
+      {
+        idArray: idArray
+      })
+    })
+  }
+
   render() {
     const name = this.props.navigation.getParam('train', true);
     const color = name.replace(/ .*/,'').toLowerCase();
