@@ -89,19 +89,6 @@ export default class TrainScreen extends Component {
     console.log(dataSource);
   };
 
-  // arrayMaker() {
-  //   dataSource.forEach(function(i) {
-  //     idArray = [];
-  //     idArray.push(i);
-  //     console.log(idArray)
-  //     return idArray
-  //     this.setState(
-  //     {
-  //       idArray: idArray
-  //     })
-  //   })
-  // }
-
   deleteRow(secId, rowId, rowMap) {
     rowMap[`${secId}${rowId}`].props.closeRow();
     const newData = [...this.state.listViewData];

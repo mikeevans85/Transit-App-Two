@@ -15,7 +15,6 @@ export default class extends Component {
 
   componentDidMount() {
     const name = this.props.navigation.getParam('train', true);
-    // const stuff = this.props.navigation.getParam('stuff', true);
     const color = name.replace(/ .*/,'').toLowerCase();
     return fetch(`https://stormy-harbor-62033.herokuapp.com/api/lstops`, {
   method: 'POST',
@@ -74,8 +73,7 @@ export default class extends Component {
             <CardItem button onPress={() => alert("This is the latitude")}>
               <Body>
                 <Text>
-                  {color}
-                  Other Train Info
+                  Train Info Goes Here
                 </Text>
               </Body>
             </CardItem>
